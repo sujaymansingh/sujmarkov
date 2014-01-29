@@ -20,7 +20,7 @@ A markov generator (in python!)
 >>>
 ```
 
-Note: generate always returns a list. So when dealing with words, you might want to join it.
+Note: `generate` always returns a list. So when dealing with words, you might want to join it.
 ```python
 >>> "".join(m.generate())
 'Wick'
