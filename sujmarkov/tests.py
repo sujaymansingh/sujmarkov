@@ -1,6 +1,6 @@
 import unittest
 
-import sujmarkov 
+import sujmarkov
 
 
 class TestGetNGrams(unittest.TestCase):

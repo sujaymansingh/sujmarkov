@@ -39,7 +39,7 @@ class Markov(object):
     """
 
     def __init__(self, n=3):
-        self.cache = collections.defaultdict(lambda : [])
+        self.cache = collections.defaultdict(lambda: [])
         self.beginnings = []
         self.endings = set()
         self.n = n
@@ -91,4 +91,3 @@ class Markov(object):
                 break
 
         return result
-
