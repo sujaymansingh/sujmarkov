@@ -8,7 +8,7 @@ REQUIREMENTS = [
 if __name__ == "__main__":
     setuptools.setup(
         name="sujmarkov",
-        version="0.0.1",
+        version="1.0.0",
         author="Sujay Mansingh",
         author_email="sujay.mansingh@gmail.com",
         packages=setuptools.find_packages(),
