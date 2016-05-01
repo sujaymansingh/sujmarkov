@@ -44,16 +44,16 @@ Note: it will be case sensitive, so perhaps you might want to lower case your in
 In fact, it might be worth stripping out punctuation etc. (Have a play around!)
 
 
-## from_file util
+## Utility script
 
-If you have a text file (with one sentence per line), then you can use the `from_file` utility to generate sentences.
+If you have a text file (with one sentence per line), then you can run sujmarkov to generate sentences.
 
 ```
 $ cat sample.txt
 You can use a file
 One sentence per line.
 
-$ python -m sujmarkov.from_file generate 1 lines from sample.txt
+$ python -m sujmarkov generate 1 lines from sample.txt
 you can use a file
 ```
 
