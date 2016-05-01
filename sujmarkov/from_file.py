@@ -2,11 +2,27 @@
 generate a few lines.
 
 Usage:
-  python from_file.py <input_filename> <num_lines_to_generate>
+    sujmarkov.py generate <n> lines from <input-filename> [--n-value=<nv>]
+
+Options:
+    -h --help          Show this screen.
+    --n-value=<nv>     The size of n-grams to use in the markov generator. [Default: 2]
 """
-import sys
+import docopt
 
 import sujmarkov
+
+
+def generate(input_filename, num_lines, ngram_value):
+    generator = sujmarkov.Markov(n=ngram_value)
+
+    with open(input_filename, "r") as input_file:
+        for sentence in extract_sentences(input_file):
+            generator.add(sentence)
+
+    for i in range(num_lines):
+        generated_sentence = " ".join(generator.generate())
+        print generated_sentence
 
 
 def extract_sentences(input_file):
@@ -28,16 +44,11 @@ def extract_sentences(input_file):
 
 
 if __name__ == "__main__":
-    m = sujmarkov.Markov(n=2)
+    args = docopt.docopt(__doc__)
 
-    with open(sys.argv[1], "r") as input_file:
-        for sentence in extract_sentences(input_file):
-            m.add(sentence)
+    if args.get("generate"):
+        num_lines = int(args["<n>"])
+        n_value = int(args["--n-value"])
+        input_filename = args["<input-filename>"]
 
-    num_required = int(sys.argv[2])
-    num_done = 0
-
-    while num_done < num_required:
-        generated_sentence = " ".join(m.generate())
-        print generated_sentence
-        num_done += 1
+        generate(input_filename, num_lines, n_value)

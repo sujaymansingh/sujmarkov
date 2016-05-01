@@ -1,6 +1,7 @@
 import setuptools
 
 REQUIREMENTS = [
+    "docopt>=0.6,<0.7",
     "nose>=1.3,<1.4"
 ]
 

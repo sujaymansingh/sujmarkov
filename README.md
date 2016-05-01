@@ -53,7 +53,7 @@ $ cat sample.txt
 You can use a file
 One sentence per line.
 
-$ python -m sujmarkov.from_file sample.txt 1
+$ python -m sujmarkov.from_file generate 1 lines from sample.txt
 you can use a file
 ```
 
