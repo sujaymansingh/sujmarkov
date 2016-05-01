@@ -8,6 +8,8 @@ Options:
     -h --help          Show this screen.
     --n-value=<nv>     The size of n-grams to use in the markov generator. [Default: 2]
 """
+from __future__ import print_function
+
 import docopt
 
 import sujmarkov
@@ -22,7 +24,7 @@ def generate(input_filename, num_lines, ngram_value):
 
     for i in range(num_lines):
         generated_sentence = " ".join(generator.generate())
-        print generated_sentence
+        print(generated_sentence)
 
 
 def extract_sentences(input_file):
