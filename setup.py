@@ -1,6 +1,7 @@
 import setuptools
 
 REQUIREMENTS = [
+    "nose>=1.3,<1.4"
 ]
 
 if __name__ == "__main__":
