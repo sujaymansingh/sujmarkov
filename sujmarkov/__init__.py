@@ -66,19 +66,24 @@ class Markov(object):
             last_item = ngram[-1]
             self.cache[key].append(last_item)
 
-    def generate(self, end_prob=.2):
+    def generate(self, end_prob=.2, random_=None):
         """Generate a random sequence.
         end_prob is the probability of stopping whenever a known ending
         sequence is encountered.
+        If required, a specific random number generator can be specified (default to the
+        python stdlib `random` module)
         """
-        current_tuple = random.choice(self.beginnings)
+        if random_ is None:
+            random_ = random
+
+        current_tuple = random_.choice(self.beginnings)
         result = list(current_tuple)
 
         while True:
             key = current_tuple
 
             if self.cache[key]:
-                last_item = random.choice(self.cache[key])
+                last_item = random_.choice(self.cache[key])
                 # Now the current tuple is
                 #
                 current_tuple = current_tuple[1:] + (last_item,)
@@ -87,7 +92,7 @@ class Markov(object):
 
             result.append(last_item)
 
-            if current_tuple in self.endings and random.random() < end_prob:
+            if current_tuple in self.endings and random_.random() < end_prob:
                 break
 
         return result
